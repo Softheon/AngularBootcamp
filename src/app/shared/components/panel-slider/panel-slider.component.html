@@ -1,0 +1,10 @@
+<div [@.disabled]="disableAnimation">
+  <div [@hide]="activePane">
+    <ng-content select="[mainPanel]"></ng-content>
+  </div>
+  <div class="panes" [@slide]="activePane">
+    <div>
+      <ng-content select="[overlay]"></ng-content>
+    </div>
+  </div>
+</div>

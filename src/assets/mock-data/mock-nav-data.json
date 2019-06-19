@@ -1,0 +1,146 @@
+{
+  "nav": {
+    "navStates": [
+      {
+        "id": "apply",
+        "route": "/apply",
+        "isStartNode": true,
+        "nextStates": [
+          {
+            "id": "tax-credit",
+            "route": "/tax-credit",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "tax-credit",
+        "route": "/tax-credit",
+        "isStartNode": false,
+        "nextStates": [
+          {
+            "id": "disclaimer",
+            "route": "/disclaimer",
+            "conditionType": "object",
+            "objectType": "EnrollmentApplication",
+            "condition": {
+              "applicationType": "OffExQhp"
+            }
+          },
+          {
+            "id": "ede",
+            "route": "/eligibility/embedded",
+            "conditionType": "object",
+            "objectType": "EnrollmentApplication",
+            "condition": {
+              "applicationType": "OnExQhp"
+            }
+          }
+        ]
+      },
+      {
+        "id": "disclaimer",
+        "route": "/disclaimer",
+        "isStartNode": true,
+        "nextStates": [
+          {
+            "id": "sep",
+            "route": "/sep",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "sep",
+        "route": "/sep",
+        "nextStates": [
+          {
+            "id": "plans",
+            "route": "/shopping/plans",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "plans",
+        "route": "/shopping/plans",
+        "isExternalNode": true,
+        "nextStates": [
+          {
+            "id": "primary-contact",
+            "route": "/primary-contact",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "primary-contact",
+        "route": "/primary-contact",
+        "nextStates": [
+          {
+            "id": "responsible-party",
+            "route": "/responsible-party",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "responsible-party",
+        "route": "/responsible-party",
+        "nextStates": [
+          {
+            "id": "authorized-user",
+            "route": "/authorized-user",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "authorized-user",
+        "route": "/authorized-user",
+        "nextStates": [
+          {
+            "id": "review",
+            "route": "/review",
+            "conditionType": "boolean",
+            "condition": true
+          }
+        ]
+      },
+      {
+        "id": "review",
+        "route": "/review",
+        "isEndNode": true
+      }
+    ]
+  },
+  "syncedNav": [
+    {
+      "id": "home",
+      "route": "/home",
+      "label": "Home",
+      "isCurrent": false,
+      "isComplete": true
+    },
+    {
+      "id": "shopping",
+      "route": "/shopping",
+      "label": "Shopping",
+      "isCurrent": false,
+      "isComplete": true
+    },
+    {
+      "id": "enrollment",
+      "route": "/enrollment",
+      "label": "Enrollment",
+      "isCurrent": true,
+      "isComplete": false
+    }
+  ]
+}

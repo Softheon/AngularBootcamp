@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Softheon.Templates.AngularApi</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://softheonworkshop.azureedge.net/alpha-9-6/workshop.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .sof-spinner-container {
+      text-align: center;
+      height: 100vh;
+      background: #f7f7f7;
+      display: flex;
+      display: -webkit-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+      .sof-spinner-container .lead {
+        font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+        margin-bottom: 0;
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.4;
+        color: #777;
+      }
+
+    .sof-spinner {
+      box-sizing: border-box;
+      border: 6px solid #ddd;
+      border-right-color: #03a9f4;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      animation: spin 3s infinite;
+    }
+
+    .sof-spinner-center {
+      text-align: center;
+      margin-left: -130.6px;
+    }
+
+    @-moz-keyframes spin {
+      from {
+        -moz-transform: rotate(0deg);
+      }
+
+      to {
+        -moz-transform: rotate(360deg);
+      }
+    }
+
+    @-webkit-keyframes spin {
+      from {
+        -webkit-transform: rotate(0deg);
+      }
+
+      to {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <app-root>
+    <section class="sof-spinner-container">
+      <div class="sof-spinner"></div>
+      <div class="sof-spinner-center">
+        <div class="lead">
+          Loading...
+        </div>
+      </div>
+    </section>
+  </app-root>
+</body>
+</html>

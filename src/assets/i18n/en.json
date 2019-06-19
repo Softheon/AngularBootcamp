@@ -1,0 +1,16 @@
+{
+  "home": {
+    "welcome": "Welcome to {{value}}!",
+    "links": {
+      "title": "Here are some links to help you start:",
+      "tutorial": "Tour of Heroes",
+      "cli": "CLI Documentation",
+      "blog": "Angular blog"
+    },
+    "htmlLinks": {
+      "title": "Here are some additional links:",
+      "cheatSheet": "Angular Cheat Sheet",
+      "html": "<a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/ngx-translate/core\">NGX-Translate</a>"
+    }
+  }
+}

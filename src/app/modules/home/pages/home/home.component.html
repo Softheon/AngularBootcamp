@@ -1,0 +1,153 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div text-center>
+  <h1>
+    {{ 'home.welcome' | translate:{value: title} }}
+  </h1>
+  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+</div>
+<div p-h-20>
+  <p>This is Softheon's baseline Angular6 and .NET Core 2.1 application, to be used for starting a new web application project.</p>
+  <p>This project has been pre-configured with a number of Softheon-chosen settings for both the .NET CORE API and the Angular6 portions of the project.</p>
+  <p>To see a full set of base settings, please go to <a routerLink="/release" routerLinkActive="active">Release Notes</a>.</p>
+  <p>Below you will also find helpful links to help understand the project. Please remember to follow the Angular CLI standards when creating new Angular files.</p>
+  <hr />
+  <h2>Setting up your new project</h2>
+  <p>There are some steps you should follow when starting a new project with this template:</p>
+  <ul>
+    <li>
+      Use <a href="https://www.npmjs.com/package/npm-check-updates" target="_blank">npm-check-updates</a>
+      <ul>
+        <li>This is a command line tool that lets you see if you have the latest package versions of he npm packages included within this project.</li>
+        <li>Be careful about updating all packages to the latest version, as sometimes other packages may not be compatible with, for example, the latest version of typescript.</li>
+        <li>All packages have been set to not automatically use automatic matching of package versions, as packages we use may not follow the standards to upgrade the major version if any breaking changes are found.</li>
+        <li>This allows the developer to better ensure that the package versions included in this base package have been tested and confirmed to work without causing issues in building a base starting project.</li>
+      </ul>
+    </li>
+    <li>
+      Authorized Login
+      <ul>
+        <li>In the appsettings.json you can determine if the website should be gated based on the user being able to successfully log in to identity server</li>
+        <li>If you want authorization, set the realm and other necessary information in both UI/Auth and Identity sections of the appsettings.json</li>
+        <li>If you are certain your application will either never, or always, require validation, you can remove the references to AuthIsRequired from both the C# and the Angular code, including in startup.service.ts</li>
+        <li>If you are not using a realm, you may remove references to the realm from the configurations, but make sure you are certain before committing to this.</li>
+      </ul>
+    </li>
+    <li>
+      Softheon Workshop (Below references are in alpha and are subject to change)
+      <ul>
+        <li>The project is set up to use @softheon/ng-workshop as a Softheon component library. If you are unable to download this library, please ensure you have an account on the Softheon npm</li>
+        <li>
+          The alpha is published to our private Softheon NPM repo and can be installed via:
+          <br />
+          npm i @softheon/ng-workshop
+        </li>
+        <li>Components include radio buttons, check boxes, buttons, links, toggle buttons, tooltips, and more. </li>
+      </ul>
+    </li>
+  </ul>
+  <hr />
+  <h2>Generating a template</h2>
+  <ol>
+    <li>
+      Download Visual Studio SDK
+      <ul>
+        <li>Use Visual Studio Installer to include ability to create Visual Studio Extensibility projects</li>
+      </ul>
+    </li>
+    <li>
+      Generate a .zip folder
+      <ul>
+        <li>In Visual Studio, highlight the project and in the top menu go to Project > Export Template...</li>
+        <li>Choose Project Template</li>
+        <li>Set the project name to "Softheon Templates"</li>
+        <li>Set the description to "UI Project Template using Angular and .NET CORE API"</li>
+        <li>Un-check the checkbox to import the template directly into your Visual Studio</li>
+        <li>This will generate a zip file in your system called Softheon Templates.zip</li>
+      </ul>
+    </li>
+    <li>
+      Update .vstemplate
+      <ul>
+        <li>Extract the Softheon Templates.zip folder</li>
+        <li>Open the MyTemplate.vstemplate file</li>
+        <li>Ensure that the following code is the last entry in &gt;Template Data&lt; : &gt;CreateInPlace&lt;true&gt;/CreateInPlace&lt;</li>
+        <li>The above step is based on <a href="http://irisclasson.com/2017/06/14/visual-studio-2017-templates-and-the-missing-content/" target="_blank">this link</a> as including this prevents a bug where items are missing from the final .vsix</li>
+      </ul>
+    </li>
+    <li>
+      Update Launch Settings
+      <ul>
+        <li>Extract the Softheon Templates.zip folder</li>
+        <li>Open the Properties/launchSettings.json</li>
+        <li>Remove any lines showing "applicationUrl"</li>
+        <li>This ensures that the port number for the base project will not be carried over into the newly-generated UI project.</li>
+      </ul>
+    </li>
+    <li>
+      Import into AngularApi.Vsix
+      <ul>
+        <li>Copy over the Softheon Templates.zip file in the AngularApi.Vsix project</li>
+        <li>Also copy over the file of the same name in the Project Templates folder</li>
+        <li>Update the author and version number in source.extension.xsixmanifest</li>
+      </ul>
+    </li>
+    <li>
+      Test project
+      <ul>
+        <li>Set the .Vsix project as the startup project and run it</li>
+        <li>A new instance of Visual Studio will open.</li>
+        <li>From this instance of Visual Studio, Select to create a New Project</li>
+        <li>If the above steps were followed correctly the project type should appear under Visual C# in the folder Softheon Templates</li>
+        <li>Note that if the project appears as a subfolder within Softheon Templates instead, then you need to update the .zip file to ensure there are no subfolders holding the .csproj file</li>
+        <li>Create the project, build and wait for dependencies to install, and run. The project should build correctly.</li>
+      </ul>
+    </li>
+    <li>
+      Distribute .vsix file
+      <ul>
+        <li>Build the .Vsix project once you are sure it is ready.</li>
+        <li>In the bin folder generated, you will find a .vsix file</li>
+        <li>Distribute this .vsix file to whoever should have the template. Don't forget to install it yourself!</li>
+        <li>The template should now display for you when making a new project</li>
+        <li>To un-install, go to Tools > Extensions and Updates... > Templates</li>
+      </ul>
+    </li>
+  </ol>
+  <h3>Additional Links</h3>
+  <ul>
+    <li>
+      <a href="https://docs.microsoft.com/en-us/visualstudio/extensibility/getting-started-with-the-vsix-project-template" target="_blank">Getting Started with the VSIX Project Template</a>
+    </li>
+    <li>
+      <a href="https://docs.microsoft.com/en-us/visualstudio/ide/template-parameters" target="_blank">Template Parameters</a>
+    </li>
+    <li>
+      <a href="https://hack.softheon.io/workshop" target="_blank">Workshop CSS Library</a>
+    </li>
+    <li>
+      <a href="https://www.npmjs.com/package/@softheon/ng-workshop" target="_blank">NG-Workshop Library</a>
+    </li>
+  </ul>
+  <hr />
+  <h2>{{ 'home.links.title' | translate }}</h2>
+  <ul>
+    <li>
+      <a target="_blank" rel="noopener" href="https://angular.io/tutorial">{{ 'home.links.tutorial' | translate }}</a>
+    </li>
+    <li>
+      <a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">{{ 'home.links.cli' | translate }}</a>
+    </li>
+    <li>
+      <a target="_blank" rel="noopener" href="https://blog.angular.io/">{{ 'home.links.blog' | translate }}</a>
+    </li>
+  </ul>
+  <h3>{{ 'home.htmlLinks.title' | translate }}</h3>
+  <ul>
+    <li>
+      <a target="_blank" rel="noopener" href="https://angular.io/guide/cheatsheet">{{ 'home.htmlLinks.cheatSheet' | translate }}</a>
+    </li>
+    <li>
+      <div [innerHtml]="'home.htmlLinks.html' | translate"></div>
+    </li>
+  </ul>
+</div>
